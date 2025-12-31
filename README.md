@@ -31,18 +31,23 @@ docker compose ps
 ## Conexión
 
 **Desde el host (localhost):**
+Usa el puerto mapeado del host (ej: `27018` si está configurado así):
 
 ```
-mongodb://admin:tu_contraseña@localhost:27017/admin?authSource=admin
+mongodb://admin:tu_contraseña@localhost:27018/admin?authSource=admin
 ```
 
 **Desde otro contenedor Docker (misma red):**
+Usa el **puerto interno del contenedor** (`27017`) y el nombre del contenedor:
 
 ```
 mongodb://admin:tu_contraseña@mongodb-prod:27017/admin?authSource=admin
 ```
 
-**Nota:** Si la contraseña tiene caracteres especiales, codifícala en la URL (ej: `%` → `%25`, `$` → `%24`, `&` → `%26`)
+**⚠️ Importante:**
+
+- Desde contenedores en la misma red: usa el puerto **interno** (27017), NO el puerto mapeado del host
+- Si la contraseña tiene caracteres especiales, codifícala (ej: `%` → `%25`, `$` → `%24`, `&` → `%26`)
 
 **MongoDB Shell:**
 
