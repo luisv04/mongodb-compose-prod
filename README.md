@@ -30,11 +30,19 @@ docker compose ps
 
 ## Conexión
 
-**String de conexión:**
+**Desde el host (localhost):**
 
 ```
 mongodb://admin:tu_contraseña@localhost:27017/admin?authSource=admin
 ```
+
+**Desde otro contenedor Docker (misma red):**
+
+```
+mongodb://admin:tu_contraseña@mongodb-prod:27017/admin?authSource=admin
+```
+
+**Nota:** Si la contraseña tiene caracteres especiales, codifícala en la URL (ej: `%` → `%25`, `$` → `%24`, `&` → `%26`)
 
 **MongoDB Shell:**
 
