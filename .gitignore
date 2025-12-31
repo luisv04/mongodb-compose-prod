@@ -1,0 +1,16 @@
+# Environment variables
+.env
+
+# MongoDB data directory
+data/
+
+# MongoDB logs
+logs/
+
+# Docker volumes
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
